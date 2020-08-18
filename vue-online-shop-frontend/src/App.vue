@@ -12,6 +12,9 @@
           <li>
             <router-link to="/cart">Cart</router-link>
           </li>
+          <li>
+            <router-link to="/demo">DEMO</router-link>
+          </li>
         </ul>
       </div>
     </nav>

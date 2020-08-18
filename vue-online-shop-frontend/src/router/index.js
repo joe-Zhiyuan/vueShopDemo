@@ -4,6 +4,8 @@ import Router from 'vue-router'
 import Home from '@/pages/Home'
 import Cart from '@/pages/Cart'
 
+import Demo from '@/pages/Demo'
+
 // Admin Components
 import Index from '@/pages/admin/Index'
 import New from '@/pages/admin/New'
@@ -45,6 +47,11 @@ export default new Router({
       path: '/Cart',
       name: 'Cart',
       component: Cart
+    },
+    {
+      path: '/Demo',
+      name: 'Demo',
+      component: Demo
     }
   ]
 })
