@@ -25,8 +25,8 @@ export default {
         alert(event.target.tagName)
       }
     },
-    editChange: function () {
-      this.edit += 1;
+    editChange: function () { 
+      this.edit += 5;
     }
   }
 }
