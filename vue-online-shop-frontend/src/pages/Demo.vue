@@ -3,7 +3,7 @@
     <p>{{msg}} + {{edit}}</p>
     <!-- 实时绑定显示数据 change点击其他dom触发 -->
     <input v-model="msg" @input="editChange" type="text">
-    <button v-on:click="greet">Greet</button>
+    <button v-on:click="greet();callback()">Greet</button>
   </div>
 </template>
 
@@ -26,7 +26,12 @@ export default {
       }
     },
     editChange: function () { 
-      this.edit += 5;
+      this.edit += 1;
+    },
+    callback: function () {
+      setTimeout(() => {
+        console.log('回调！');
+      }, 100)
     }
   }
 }
