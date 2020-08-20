@@ -9,43 +9,39 @@
 
 <script>
 export default {
-  name: 'demo',
-  data () {
+  name: "demo",
+  data() {
     return {
-      msg: 'v-model',
-      edit: 1
-    }
+      msg: "v-model",
+      edit: 1,
+    };
   },
   methods: {
     greet: function (event) {
       // `this` 在方法里指向当前 Vue 实例
-      console.log('Hello ' + this.msg + '!')
+      console.log("Hello " + this.msg + "!");
       // `event` 是原生 DOM 事件
       if (event) {
-        console.log(event.target.tagName)
+        console.log(event.target.tagName);
       }
     },
-    editChange: function () { 
+    editChange: function () {
       this.edit += 1;
     },
   },
   mounted: function () {
-    const callback = function () {
-      let _edit = Math.random() * 10;
-      return new Promise(function (resolve, reject) {
-        if (_edit > 5) {
-          console.log('点击5次了!');
-        }
-      })
-    }
-    callback().then(function () {
-      console.log('成功！');
-    }).catch(() => {
-      console.log('失败！');
+    console.log("mounted");
+    this.$axios({
+      method: "get",
+      url:
+        "https://devapi.heweather.net/v7/weather/3d?location=117.318619,31.87035&key=11c5d282743d48d9b9cee869c5d882b6",
     })
-    console.log('mounted');
-  }
-}
+      .then((response) => {
+        console.log(response.data.code, response.data.daily, "success"); // 成功的返回
+      })
+      .catch((error) => console.log(error, "error")); // 失败的返回
+  },
+};
 </script>
 
 <style>

@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// axios
+import axios from 'axios'
+
+Vue.prototype.$axios = axios // 全局注册
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
