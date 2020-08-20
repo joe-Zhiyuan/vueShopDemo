@@ -1,9 +1,12 @@
 <template>
   <div>
-    <p>{{msg}} + {{edit}}</p>
-    <!-- 实时绑定显示数据 change点击其他dom触发 -->
-    <input v-model="msg" @input="editChange" type="text" />
-    <button v-on:click="greet();callback()">Greet</button>
+    <iframe :src="tqUrl" frameborder="0"></iframe>
+    <div>
+      <p>{{msg}} + {{edit}}</p>
+      <!-- 实时绑定显示数据 change点击其他dom触发 -->
+      <input v-model="msg" @input="editChange" type="text" />
+      <button v-on:click="greet();callback()">Greet</button>
+    </div>
   </div>
 </template>
 
@@ -14,6 +17,7 @@ export default {
     return {
       msg: "v-model",
       edit: 1,
+      tqUrl: ''
     };
   },
   methods: {
@@ -34,10 +38,11 @@ export default {
     this.$axios({
       method: "get",
       url:
-        "https://devapi.heweather.net/v7/weather/3d?location=117.318619,31.87035&key=11c5d282743d48d9b9cee869c5d882b6",
+        "https://devapi.heweather.net/v7/weather/now?location=117.318619,31.87035&key=11c5d282743d48d9b9cee869c5d882b6",
     })
       .then((response) => {
-        console.log(response.data.code, response.data.daily, "success"); // 成功的返回
+        this.tqUrl = response.data.fxLink;
+        console.log(response.data.code, response.data.now, "success"); // 成功的返回
       })
       .catch((error) => console.log(error, "error")); // 失败的返回
   },
@@ -45,4 +50,8 @@ export default {
 </script>
 
 <style>
+iframe {
+  width: 500px;
+  height: 450px;
+}
 </style>
