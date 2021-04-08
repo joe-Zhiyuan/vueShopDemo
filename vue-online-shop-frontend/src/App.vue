@@ -15,6 +15,9 @@
           <li>
             <router-link to="/demo">DEMO</router-link>
           </li>
+          <li>
+            <router-link to="/imageColor">ImageColor</router-link>
+          </li>
         </ul>
       </div>
     </nav>
@@ -35,6 +38,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.nav_left {
+  display: flex;
+  width: 100%;
+  padding: 50px;
+}
+.nav_left > li {
+  flex: 1;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
 }
 </style>

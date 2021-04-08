@@ -12,11 +12,13 @@ import New from '@/pages/admin/New'
 import Products from '@/pages/admin/Products'
 import Edit from '@/pages/admin/Edit'
 
+// ImageCOlor 图片背景色获取设置
+import ImageColor from '@/pages/imageColor/Index'
+
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'home',
       component: Home
@@ -25,8 +27,7 @@ export default new Router({
       path: '/admin',
       // name: 'Admin',
       component: Index,
-      children: [
-        {
+      children: [{
           path: 'new',
           name: 'New',
           component: New
@@ -52,6 +53,11 @@ export default new Router({
       path: '/Demo',
       name: 'Demo',
       component: Demo
+    },
+    { // 根据图片获取图片主颜色 设置背景色等
+      path: '/ImageColor',
+      name: 'ImageColor',
+      component: ImageColor
     }
   ]
 })

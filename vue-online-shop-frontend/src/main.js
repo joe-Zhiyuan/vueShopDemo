@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// 公共css
+import './assets/public.css'
+
 // axios
 import axios from 'axios'
 
