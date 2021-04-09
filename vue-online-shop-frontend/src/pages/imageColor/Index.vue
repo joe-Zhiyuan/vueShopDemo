@@ -1,15 +1,26 @@
 <template>
   <div>
-    <ul>
+    <!-- <ul>
       <li v-for="item of imageArr" :key="item.id">
         <img :src=item.url :alt=item.title>
         <p>{{item.title}}</p>
       </li>
-    </ul>
+    </ul> -->
+    <h2>获取图片主颜色</h2>
+    <main>
+      <canvas></canvas>
+      <section>
+        <input type="file" id="uploadFile">
+        <input type="number" class="k" placeholder="输出几种颜色？">
+        <button class="start">Start</button>
+      </section>
+      <div class="colorPanel"></div>
+    </main>
   </div>
 </template>
 
 <script>
+import {main} from './index.js'
 export default {
   name: "imageColor",
   data() {
@@ -40,6 +51,59 @@ export default {
           title: "我叫了应召女郎然后你就来了 / レヴィ・エリファ Cover",
         },
       ],
+    };
+  },
+  mounted () {
+    let file = null;
+    let canvas = document.querySelector("canvas");
+    let colorPanel = document.querySelector(".colorPanel");
+    let image = new Image();
+    let reader = new FileReader();
+    let targetHeight, targetWidth;
+    image.onload = function () {
+      let context = canvas.getContext("2d");
+      let maxWidth = 500,
+        maxHeight = 500;
+      targetWidth = image.width;
+      targetHeight = image.height;
+      let originWidth = image.width,
+        originHeight = image.height;
+      if (originWidth / originHeight > maxWidth / maxHeight) {
+        targetWidth = maxWidth;
+        targetHeight = Math.round(maxWidth * (originHeight / originWidth));
+      } else {
+        targetHeight = maxHeight;
+        targetWidth = Math.round(maxHeight * (originWidth / originHeight));
+      }
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+      context.drawImage(image, 0, 0, targetWidth, targetHeight);
+    };
+    reader.onload = function (e) {
+      image.src = e.target.result;
+    };
+    document.querySelector("#uploadFile").onchange = function (e) {
+      file = e.target.files[0];
+      if (file.type.indexOf("image") == 0) {
+        reader.readAsDataURL(file);
+      }
+    };
+    document.querySelector("button.start").onclick = function () {
+      let context = canvas.getContext("2d");
+      let K = document.querySelector("input.k");
+      console.log(k, typeof k != Number);
+      if (K <= 0 && typeof k != Number) {
+        alert("请输入正确参数");
+        return;
+      }
+      document.querySelector(".colorPanel").innerHTML = "";
+      main(
+        context,
+        { height: targetHeight, width: targetWidth },
+        colorPanel,
+        K,
+        1
+      );
     };
   },
 };

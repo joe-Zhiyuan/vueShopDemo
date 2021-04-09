@@ -1,0 +1,77 @@
+/* pages/index/phoneLogin.wxss */
+.phone {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+}
+.phoneTilte {
+  display: inline-block;
+  font-size: 48rpx;
+  line-height: 67rpx;
+  color: #333333;
+  font-size: 500;
+  margin-top: 96rpx;
+  margin-left: 15rpx;
+}
+.phoneForm {
+  margin-top: 163rpx;
+}
+.phoneInput {
+  position: relative;
+  width: 100%;
+  padding-bottom: 30rpx;
+  border-bottom: 4rpx solid #E6E6E6;
+  z-index: 1;
+}
+.phoneInput image, .keyInput image {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.phoneInput input, .keyInput input {
+  padding-left: 66rpx;
+  color: #333333;
+  font-size: 32rpx;
+  line-height: 45rpx;
+}
+.keyInput {
+  position: relative;
+  width: 100%;
+  padding-bottom: 18rpx;
+  border-bottom: 4rpx solid #E6E6E6;
+  z-index: 1;
+  margin-top: 69rpx;
+}
+.keyInput input {
+  padding-right: 156rpx;
+}
+.getVerify {
+  position: absolute;
+  top: 5rpx;
+  right: 0;
+  z-index: 5;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  color: #4173FF;
+}
+.loginBtn {
+  width: 100%;
+  padding: 22rpx 0;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: #4173FF;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  margin-top: 94rpx;
+}
+.phoneTip {
+  margin-top: 24rpx;
+  font-size: 24rpx;
+  line-height: 37rpx;
+  color: #999999;
+}
