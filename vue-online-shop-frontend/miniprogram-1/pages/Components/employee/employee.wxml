@@ -1,6 +1,0 @@
-<view class="footer">
-  <view>
-    登录即代表您已阅读并同意
-    <a bindtap="employee" class="footerLink">《用户服务协议》</a>
-  </view>
-</view>
